@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/iip-srm.owl#"
+     xml:base="http://purl.org/iip-srm.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ato="http://www.owl-ontologies.com/ato.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:iip-srm="http://purl.org/iip-srm.owl#">
+    <owl:Ontology rdf:about="http://purl.org/iip-srm.owl">
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology"/>
+        <dc:contributor>Dmitry Mouromtsev</dc:contributor>
+        <rdfs:label xml:lang="en">The Semantic reference model for individualization of information processes</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#affects -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#affects">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Modification"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Object_of_Process"/>
+        <rdfs:label xml:lang="en">affects</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#causes -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#causes">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Modification"/>
+        <rdfs:comment xml:lang="en">This object property is equivalent to the &apos;has-f&apos; entity (axiom label in BFO2 Reference: [070-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">causes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#executes -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#executes">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Process_Executant"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+        <rdfs:comment xml:lang="en">This object property is equivalent to the &apos;has_participant&apos; entity (axiom label in BFO2 Reference: [086-003])</rdfs:comment>
+        <rdfs:label xml:lang="en">executes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#has_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#has_participant">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Continuant"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:comment xml:lang="en">This object property is equivalent to the &apos;participates in at some time&apos; entity (axiom label in BFO2 Reference: [086-003])</rdfs:comment>
+        <rdfs:label xml:lang="en">has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#has_quality -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#has_quality">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Object_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Quality"/>
+        <rdfs:label xml:lang="en">has quality</rdfs:label>
+        <rdfs:label xml:lang="ru">имеет свойство</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#implements_process -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#implements_process">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/iip-srm.owl#has_participant"/>
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Process_Owner"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:label xml:lang="en">implements process</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#is_checked_by -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#is_checked_by">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Quality"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process_Inspector"/>
+        <rdfs:comment xml:lang="en">This object property is equivalent to the &apos;s-depends-on_st&apos; entity (axiom label in BFO2 Reference: [083-003])</rdfs:comment>
+        <rdfs:label xml:lang="en">is checked by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#is_depend_on -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#is_depend_on">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Resource"/>
+        <rdfs:label xml:lang="en">is depend on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#is_developed_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#is_developed_in">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Object_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:label xml:lang="en">is developed in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#is_included_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#is_included_in">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/iip-srm.owl#has_participant"/>
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process_Implementation"/>
+        <rdfs:label xml:lang="en">is included in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#is_observation_for -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#is_observation_for">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Observation"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process_Implementation"/>
+        <rdfs:comment xml:lang="en">This object property is equivalent to the &apos;profile-of&apos; entity (axiom label in BFO2 Reference: [093-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">is observation for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#performed_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#performed_in">
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:comment xml:lang="en">This object property is equivalent to the &apos;realized-in&apos; entity (axiom label in BFO2 Reference: [106-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">performed in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#requires -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/iip-srm.owl#requires">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+        <rdfs:range rdf:resource="http://purl.org/iip-srm.owl#Machine"/>
+        <rdfs:label xml:lang="en">requires</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/iip-srm.owl#date"/>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#dosage -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/iip-srm.owl#dosage">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Changes_of_the_agrochemical_properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:label xml:lang="en">dosage</rdfs:label>
+        <rdfs:label xml:lang="ru">дозировка</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#method_of_watering -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/iip-srm.owl#method_of_watering">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Plant_care"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="ru">способ полива</rdfs:comment>
+        <rdfs:label xml:lang="en">method of watering</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#numeric_value -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/iip-srm.owl#numeric_value">
+        <rdfs:label xml:lang="en">numeric value</rdfs:label>
+        <rdfs:label xml:lang="ru">числовое значение</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#year -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/iip-srm.owl#year"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Boundary -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Boundary">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Occurrent"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;process boundary&apos; entity (axiom label in BFO2 Reference: [084-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">Boundary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Continuant -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Continuant">
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;continuant&apos; entity (axiom label in BFO2 Reference: [008-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">Continuant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Dependent_Continuant -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Dependent_Continuant">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Continuant"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;specifically dependent continuant&apos; entity (axiom label in BFO2 Reference: [050-003])</rdfs:comment>
+        <rdfs:label xml:lang="en">Dependent continuant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Function -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Function">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Realizable"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;function&apos; entity (axiom label in BFO2 Reference: [064-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">Function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#History -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#History">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;history&apos; entity (axiom label in BFO2 Reference: [138-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">History</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Independent_Continuant -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Independent_Continuant">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Continuant"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;independent continuant &apos; entity (axiom label in BFO2 Reference: [017-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">Independent continuant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Machine -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Machine">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Material_object"/>
+        <owl:disjointWith rdf:resource="http://purl.org/iip-srm.owl#Resource"/>
+        <rdfs:label xml:lang="en">Machine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Material_object -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Material_object">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Independent_Continuant"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the GFO: Material object</rdfs:comment>
+        <rdfs:label xml:lang="en">Material object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Modification -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Modification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Function"/>
+        <rdfs:label xml:lang="en">Modification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Object -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Object">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Material_object"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;object&apos; entity (axiom label in BFO2 Reference: [024-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">Object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Object_of_Process -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Object_of_Process">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Object"/>
+        <rdfs:label xml:lang="en">Object of process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Observation -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Observation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process_Profile"/>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Occurrent -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Occurrent">
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;occurrent&apos; entity (axiom label in BFO2 Reference: [077-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">Occurrent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Occurrent"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;process&apos; entity (axiom label in BFO2 Reference: [083-003])</rdfs:comment>
+        <rdfs:label xml:lang="en">Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Executant -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Executant">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Role"/>
+        <owl:disjointWith rdf:resource="http://purl.org/iip-srm.owl#Process_Owner"/>
+        <rdfs:label xml:lang="en">Process executant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Implementation -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Implementation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:label xml:lang="en">Process implementation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Implementation_Head -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Implementation_Head">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Boundary"/>
+        <rdfs:label xml:lang="en">Process implementation head</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Implementation_Tail -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Implementation_Tail">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#History"/>
+        <rdfs:label xml:lang="en">Process implementation tail</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Inspector -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Inspector">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Independent_Continuant"/>
+        <rdfs:label xml:lang="en">Process inspector</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Owner -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Owner">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Role"/>
+        <rdfs:label xml:lang="en">Process owner</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Process_Profile -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Process_Profile">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;process_profile&apos; entity (axiom label in BFO2 Reference: [093-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">Process profile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Quality -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Quality">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Dependent_Continuant"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;quality&apos; entity (axiom label in BFO2 Reference: [055-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Realizable -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Realizable">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Dependent_Continuant"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;realizable entity&apos; entity (axiom label in BFO2 Reference: [058-002])</rdfs:comment>
+        <rdfs:label xml:lang="en">Realizable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Resource -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Resource">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Material_object"/>
+        <rdfs:label xml:lang="en">Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Role -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Role">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Realizable"/>
+        <rdfs:comment xml:lang="en">This calss equivalent to the &apos;role&apos; entity (axiom label in BFO2 Reference: [061-001])</rdfs:comment>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#Step_of_Process -->
+
+    <owl:Class rdf:about="http://purl.org/iip-srm.owl#Step_of_Process">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Realizable"/>
+        <rdfs:label xml:lang="en">Step of process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ato.owl#Agronomist -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/ato.owl#Agronomist">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process_Inspector"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ato.owl#Manager -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/ato.owl#Manager">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process_Owner"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ato.owl#Material_resource -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/ato.owl#Material_resource">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Machine"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ato.owl#Operator -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/ato.owl#Operator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Process_Executant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ato.owl#Presowing_soil_preparation -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/ato.owl#Presowing_soil_preparation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Modification"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ato.owl#Production_operation -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/ato.owl#Production_operation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Step_of_Process"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Artificial_modification_of_soil -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Artificial_modification_of_soil">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Modification"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Field -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Field">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Object_of_Process"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Mesurment -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Mesurment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Observation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Plant_care -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Plant_care">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Modification"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Soil -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Soil">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Object_of_Process"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Soil_properties -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Soil_properties">
+        <rdfs:subClassOf rdf:resource="http://purl.org/iip-srm.owl#Quality"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#content_of_humus -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#content_of_humus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Agrochemical_properties"/>
+        <rdfs:label xml:lang="en">content of humus</rdfs:label>
+        <rdfs:label xml:lang="ru">содержание гумуса</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#content_of_nitrogen -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#content_of_nitrogen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Agrochemical_properties"/>
+        <numeric_value>0,25</numeric_value>
+        <rdfs:label xml:lang="en">content of nitrogen</rdfs:label>
+        <rdfs:label xml:lang="ru">содержание азота</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#content_of_nutrients -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#content_of_nutrients">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Agrochemical_properties"/>
+        <rdfs:label xml:lang="en">content of nutrients</rdfs:label>
+        <rdfs:label xml:lang="ru">содержание питательных веществ</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#fertilizer_spreader -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#fertilizer_spreader">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/ato.owl#Field_cultivator"/>
+        <rdfs:label xml:lang="en">fertilizer spreader</rdfs:label>
+        <rdfs:label xml:lang="ru">распределитель удобрений</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#field_X -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#field_X">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Field"/>
+        <has_quality rdf:resource="http://purl.org/iip-srm.owl#content_of_humus"/>
+        <has_quality rdf:resource="http://purl.org/iip-srm.owl#content_of_nitrogen"/>
+        <has_quality rdf:resource="http://purl.org/iip-srm.owl#content_of_nutrients"/>
+        <has_quality rdf:resource="http://purl.org/iip-srm.owl#soil_texture"/>
+        <is_developed_in rdf:resource="http://purl.org/iip-srm.owl#option_1"/>
+        <is_developed_in rdf:resource="http://purl.org/iip-srm.owl#option_2"/>
+        <rdfs:label xml:lang="en">field X</rdfs:label>
+        <rdfs:label xml:lang="ru">поле X</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#nitogen_value_1 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#nitogen_value_1">
+        <rdfs:label xml:lang="en">nitrogen mesurment 1</rdfs:label>
+        <rdfs:label xml:lang="ru">измерение содержания азота</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#option_1 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#option_1">
+        <rdf:type rdf:resource="http://purl.org/iip-srm.owl#Process_Implementation"/>
+        <year rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">2019</year>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#option_2 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#option_2">
+        <rdf:type rdf:resource="http://purl.org/iip-srm.owl#Process_Implementation"/>
+        <year rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">2021</year>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#soil_of_field_A -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#soil_of_field_A">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Soil"/>
+        <rdfs:label xml:lang="en">soil of the field A</rdfs:label>
+        <rdfs:label xml:lang="ru">почва на поле А</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#soil_texture -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#soil_texture">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Agrophysical_properties"/>
+        <rdfs:label xml:lang="en">soil texture</rdfs:label>
+        <rdfs:label xml:lang="ru">механический состав</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#sprinkler -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#sprinkler">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/ato.owl#Field_cultivator"/>
+        <rdfs:label xml:lang="en">sprinkler</rdfs:label>
+        <rdfs:label xml:lang="ru">дождевальный агрегат</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#test_1 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#test_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Mesurment"/>
+        <is_observation_for rdf:resource="http://purl.org/iip-srm.owl#option_1"/>
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">07/21</date>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/iip-srm.owl#test_2 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/iip-srm.owl#test_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#Mesurment"/>
+        <is_observation_for rdf:resource="http://purl.org/iip-srm.owl#option_2"/>
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">07.19</date>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#ameliorative_measures -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#ameliorative_measures">
+        <affects rdf:resource="http://purl.org/iip-srm.owl#soil_texture"/>
+        <performed_in rdf:resource="http://purl.org/iip-srm.owl#option_1"/>
+        <requires rdf:resource="http://purl.org/iip-srm.owl#fertilizer_spreader"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#distribution_over_plants -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2021/AgroTech_Ontology#distribution_over_plants">
+        <affects rdf:resource="http://purl.org/iip-srm.owl#content_of_nitrogen"/>
+        <performed_in rdf:resource="http://purl.org/iip-srm.owl#option_2"/>
+        <requires rdf:resource="http://purl.org/iip-srm.owl#sprinkler"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Boundary"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Function"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#History"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Independent_Continuant"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Material_object"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Object"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Process"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Process_Implementation"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Process_Profile"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Realizable"/>
+            <rdf:Description rdf:about="http://purl.org/iip-srm.owl#Role"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
